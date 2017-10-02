@@ -1,0 +1,12 @@
+{
+    "env": {
+        "mocha": true
+    },
+    "rules": {
+        "no-console": 0,
+        "arrow-body-style": 0
+    },
+    "globals": {
+        "expect": true
+    }
+}

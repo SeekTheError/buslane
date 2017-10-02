@@ -1,0 +1,35 @@
+{
+  "name": "buslane",
+  "version": "1.0.0",
+  "description": "buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.0.2",
+    "execa": "^0.7.0",
+    "lodash": "^4.17.4",
+    "mocha": "^3.2.0"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test node --expose-http2 ./test/runner.js"
+  },
+  "keywords": [
+    "rpc",
+    "http2",
+    "object",
+    "proxy"
+  ],
+  "author": "Rémi Bouchar",
+  "license": "MIT",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/5app/buslane.git"
+  },
+  "bugs": {
+    "url": "https://github.com/5app/buslane/issues"
+  },
+  "homepage": "https://github.com/5app/buslane#readme"
+}
