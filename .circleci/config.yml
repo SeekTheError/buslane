@@ -1,0 +1,20 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: node:8.6.0-alpine
+    working_directory: ~/buslane
+    steps: 
+      - checkout
+      - restore_cache:
+          key: v2-dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install npm dependencies
+          command: npm install
+      - save_cache:
+          key: v2-dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - "node_modules"
+      - run:
+          name: test
+          command: npm test
