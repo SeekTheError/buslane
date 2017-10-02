@@ -13,7 +13,8 @@
     "mocha": "^3.2.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test node --expose-http2 ./test/runner.js"
+    "test": "npm run lint && NODE_ENV=test node --expose-http2 ./test/runner.js",
+    "lint": "eslint ."
   },
   "keywords": [
     "rpc",
@@ -23,7 +24,9 @@
   ],
   "author": "Rémi Bouchar",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^4.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/buslane.git"

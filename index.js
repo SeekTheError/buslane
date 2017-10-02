@@ -217,7 +217,7 @@ module.exports = class Buslane {
 	}
 
 	/**
-		 Return a proxy object that will assume all methods exists. If we take a config with to services with 
+		 Return a proxy object that will assume all methods exists. If we take a config with to services with
 		 on ingress each, those will be register as egress on the otherside. The proxy object is required
 		 to be able to call any function. If the function does not exist on the other side an error is thrown.
 
@@ -319,7 +319,7 @@ module.exports = class Buslane {
 	}
 
 	/**
-		Register a service as an Ingress, making the object methods accessible to 
+		Register a service as an Ingress, making the object methods accessible to
 		the other services.
 		params:
 			- name: The name of the ingress(ex: database, so other service could call database.sql(query))
