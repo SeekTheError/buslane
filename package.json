@@ -10,7 +10,7 @@
     "chai": "^4.0.2",
     "execa": "^0.7.0",
     "lodash": "^4.17.4",
-    "mocha": "^3.2.0"
+    "mocha": "^4.0.0"
   },
   "scripts": {
     "test": "npm run lint && NODE_ENV=test node --expose-http2 ./test/runner.js",
