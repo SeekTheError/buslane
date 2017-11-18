@@ -1,5 +1,7 @@
 # Buslane
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/5app/buslane.svg)](https://greenkeeper.io/)
+
 ## Intro
 
 buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.
