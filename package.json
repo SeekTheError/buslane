@@ -6,14 +6,9 @@
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "chai": "^4.0.2",
-    "execa": "^0.7.0",
-    "lodash": "^4.17.4",
-    "mocha": "^4.0.0"
-  },
   "scripts": {
-    "test": "npm run lint && NODE_ENV=test node --expose-http2 ./test/runner.js",
+    "test": "npm run lint && npm run spec && (nyc report --reporter=text-lcov | coveralls)",
+    "spec": "NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
     "lint": "eslint ."
   },
   "keywords": [
@@ -25,7 +20,11 @@
   "author": "Rémi Bouchar",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.8.0"
+    "chai": "^4.0.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "nyc": "^11.3.0"
   },
   "repository": {
     "type": "git",
