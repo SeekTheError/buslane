@@ -2,7 +2,9 @@
 
 let http2;
 const debug = !!process.env.BUS_DEBUG;
+
 const fs = require('fs');
+const path = require('path');
 
 module.exports = class Buslane {
 
@@ -83,8 +85,8 @@ module.exports = class Buslane {
 			let key;
 			let cert;
 			try {
-				key = fs.readFileSync(service.ssl_key_path || 'ssl/key.pem');
-				cert = fs.readFileSync(service.ssl_cert_path || 'ssl/certificate.pem');
+				key = fs.readFileSync(service.ssl_key_path || path.join(__dirname, 'ssl/key.pem'));
+				cert = fs.readFileSync(service.ssl_cert_path || path.join(__dirname, 'ssl/certificate.pem'));
 			}
 			catch (e) {
 				console.error('Could not load custom certificates, exiting\n', e);
@@ -228,7 +230,7 @@ module.exports = class Buslane {
 
 			let ca;
 			try {
-				ca = fs.readFileSync(destination.ssl_cert_path || 'ssl/certificate.pem');
+				ca = fs.readFileSync(destination.ssl_cert_path || path.join(__dirname, 'ssl/certificate.pem'));
 			}
 			catch (e) {
 				console.error('Could not load custom certificate server certificate for the client\n', e);

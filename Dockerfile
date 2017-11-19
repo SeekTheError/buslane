@@ -2,7 +2,7 @@ FROM node:8.8.1-alpine
 
 COPY package.json /tmp/package.json
 USER node
-RUN cd /tmp/ && npm i
+RUN cd /tmp/ && NODE_ENV=dev npm i
 
 # Create app directory
 RUN mkdir -p /home/node/app

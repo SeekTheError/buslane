@@ -1,16 +1,15 @@
 {
   "name": "buslane",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "chai": "^4.0.2",
-    "execa": "^0.7.0",
-    "lodash": "^4.17.4",
-    "mocha": "^4.0.0"
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.1"
   },
   "scripts": {
     "test": "npm run lint && npm run integration",
@@ -26,9 +25,6 @@
   ],
   "author": "Rémi Bouchar",
   "license": "MIT",
-  "devDependencies": {
-    "eslint": "^4.8.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/buslane.git"
