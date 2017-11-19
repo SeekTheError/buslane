@@ -33,7 +33,7 @@ To generate the ssl certs for a particular host(the one your service will run on
 
     openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=$HOST' -keyout ssl/key.pem -out ssl/certificate.pem
 
-Then make sure you provision the service with the right path to the righ keys:
+Then make sure you provision the service with the absolute path to the key and the certificate:
 
 ```
 const config = {name, shared_api_key: 'test'};
