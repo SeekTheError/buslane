@@ -4,7 +4,7 @@
 
 buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.
 
-The need for this lib came about when we decided to move to docker at 5app. I wanted a simple way to remove our direct code dependencies between services.
+The need for this lib came about when we decided to move to docker at 5app. I wanted a simple way to remove our direct code dependencies between services without having to add extra endpoints manually.
 
 With buslane and its RPC like object proxying, you can call methods on remote objects as if they were in the same context. So there is no need to create specific service endpoints either. Just write the configuration and buslane will expose the objects to each other.
 
@@ -43,3 +43,5 @@ const config = {name, shared_api_key: 'test'};
 	];
 
 ```
+
+
