@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:8.6.0-alpine
+      - image: 5app/node-circleci:2.0.0
     working_directory: ~/buslane
     steps: 
       - checkout
