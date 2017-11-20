@@ -1,19 +1,17 @@
 {
   "name": "buslane",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
-  "dependencies": {
-    "chai": "^4.0.2",
-    "execa": "^0.8.0",
-    "lodash": "^4.17.4",
-    "mocha": "^4.0.0"
-  },
   "scripts": {
-    "test": "npm run lint && NODE_ENV=test node --expose-http2 ./test/runner.js",
+    "test": "npm run lint && npm run integrationCoverage && (nyc report --reporter=text-lcov | coveralls)",
+    "integrationCoverage": " NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
+    "integration": " NODE_ENV=test node --expose-http2 ./test/runner.js",
+    "dockerTest" : "docker build -t buslane . && docker run buslane sh -c \"npm run integration\"",
+    "spec": "NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
     "lint": "eslint ."
   },
   "keywords": [
@@ -25,7 +23,11 @@
   "author": "Rémi Bouchar",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.8.0"
+    "chai": "^4.0.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "nyc": "^11.3.0"
   },
   "repository": {
     "type": "git",
