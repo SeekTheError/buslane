@@ -6,15 +6,12 @@
   "directories": {
     "test": "test"
   },
-  "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^4.8.0",
-    "mocha": "^4.0.1"
-  },
   "scripts": {
-    "test": "npm run lint && npm run integration",
+    "test": "npm run lint && npm run integrationCoverage && (nyc report --reporter=text-lcov | coveralls)",
+    "integrationCoverage": " NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
     "integration": " NODE_ENV=test node --expose-http2 ./test/runner.js",
-    "dockerTest": "docker build -t buslane . && docker run buslane",
+    "dockerTest" : "docker build -t buslane . && docker run buslane sh -c \"npm run integration\"",
+    "spec": "NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
     "lint": "eslint ."
   },
   "keywords": [
@@ -25,6 +22,13 @@
   ],
   "author": "Rémi Bouchar",
   "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "nyc": "^11.3.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/5app/buslane.git"

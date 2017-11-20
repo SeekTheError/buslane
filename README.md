@@ -1,5 +1,7 @@
 # Buslane
 
+[![Coverage Status](https://coveralls.io/repos/github/5app/buslane/badge.svg)](https://coveralls.io/github/5app/buslane)
+
 ## Intro
 
 buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.
