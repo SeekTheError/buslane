@@ -5,7 +5,7 @@ const Buslane = require('../..');
 function busTestConfig(name) {
 	const config = {name, shared_api_key: 'test'};
 	config.map = [
-		{name: 'argo', port: 11211, ingresses: ['boat']},
+		{name: 'argo', port: 11211, ingresses: ['boat'], ssl_cert_path: 'ssl/certificate.pem', ssl_key_path: 'ssl/key.pem'},
 		{name: 'jason', port: 11311, ingresses: []},
 	];
 

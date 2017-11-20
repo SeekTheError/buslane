@@ -3,6 +3,9 @@
 let http2;
 const debug = !!process.env.BUS_DEBUG;
 
+const fs = require('fs');
+const path = require('path');
+
 module.exports = class Buslane {
 
 	constructor(config) {
@@ -77,10 +80,24 @@ module.exports = class Buslane {
 		}
 
 		if (!this.server) {
-			this.server = http2.createServer();
+
+			// SSL config
+			let key;
+			let cert;
+			try {
+				key = fs.readFileSync(service.ssl_key_path || path.join(__dirname, 'ssl/key.pem'));
+				cert = fs.readFileSync(service.ssl_cert_path || path.join(__dirname, 'ssl/certificate.pem'));
+			}
+			catch (e) {
+				console.error('Could not load custom certificates, exiting\n', e);
+				process.exit(0);
+			}
+
+			this.server = http2.createSecureServer({key, cert});
 			const server = this.server;
 
-			server.on('error', console.error);
+			server.on('error', err => console.error(err));
+			server.on('socketError', err => console.error(err));
 
 			server.on('stream', (stream, headers) => {
 				stream.streamResponse = this.streamResponse(stream);
@@ -119,7 +136,7 @@ module.exports = class Buslane {
 			}
 
 			stream.respond({
-				'content-type': 'text/html',
+				'content-type': 'application/json',
 				':status': status
 			});
 
@@ -210,7 +227,16 @@ module.exports = class Buslane {
 		}
 
 		if (!this.clients[name]) {
-			this.clients[name] = http2.connect(`http://${destination.host || 'localhost'}:${destination.port}`);
+
+			let ca;
+			try {
+				ca = fs.readFileSync(destination.ssl_cert_path || path.join(__dirname, 'ssl/certificate.pem'));
+			}
+			catch (e) {
+				console.error('Could not load custom certificate server certificate for the client\n', e);
+			}
+
+			this.clients[name] = http2.connect(`https://${destination.host || 'localhost'}:${destination.port}`, {ca});
 		}
 
 		return this.clients[name];

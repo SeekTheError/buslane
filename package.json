@@ -1,13 +1,15 @@
 {
   "name": "buslane",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.",
   "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "npm run lint && npm run spec && (nyc report --reporter=text-lcov | coveralls)",
+    "test": "npm run lint && npm run integration && (nyc report --reporter=text-lcov | coveralls)",
+    "integration": " NODE_ENV=test node --expose-http2 ./test/runner.js",
+    "dockerTest" : "docker build -t buslane . && docker run buslane sh -c \"npm run integration\"",
     "spec": "NODE_ENV=test nyc node --expose-http2 ./test/runner.js",
     "lint": "eslint ."
   },
