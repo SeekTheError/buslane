@@ -1,5 +1,6 @@
 # Buslane
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/5app/buslane.svg)](https://greenkeeper.io/)
 [![Coverage Status](https://coveralls.io/repos/github/5app/buslane/badge.svg)](https://coveralls.io/github/5app/buslane)
 
 ## Intro
