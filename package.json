@@ -23,12 +23,12 @@
   "author": "Rémi Bouchar",
   "license": "MIT",
   "devDependencies": {
-    "chai": "^4.0.2",
-    "coveralls": "^3.0.0",
-    "eslint": "^4.11.0",
-    "eslint-config-5app": "^0.1.0",
-    "mocha": "^4.0.0",
-    "nyc": "^11.3.0"
+    "chai": "4.0.2",
+    "coveralls": "3.0.0",
+    "eslint": "4.11.0",
+    "eslint-config-5app": "0.1.0",
+    "mocha": "4.0.0",
+    "nyc": "11.3.0"
   },
   "repository": {
     "type": "git",
