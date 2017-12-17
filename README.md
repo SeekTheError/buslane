@@ -32,9 +32,9 @@ docker build -t buslane . && docker run buslane
 
 By default buslane only provide a self signed cert that will only work with localhost. This default certificate is not for production use. 
 
-To generate the ssl certs for a particular host(the one your service will run on, make sure you replace $HOST of course):
+To generate the ssl certs for a particular host(the one your service will run on, make sure you replace $HOST and $NUMBER_OF_VALID_DAYS of course):
 
-    openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj '/CN=$HOST' -keyout ssl/key.pem -out ssl/certificate.pem
+    openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj -days $NUMBER_OF_VALID_DAYS'/CN=$HOST' -keyout ssl/key.pem -out ssl/certificate.pem
 
 Then make sure you provision the service with the absolute path to the key and the certificate:
 

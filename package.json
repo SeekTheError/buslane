@@ -1,6 +1,6 @@
 {
   "name": "buslane",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "buslane is a cross-service and transparent object.method proxy, using an rpc-lite json/http2 transport.",
   "main": "index.js",
   "directories": {
