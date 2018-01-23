@@ -28,7 +28,7 @@
     "eslint": "4.16.0",
     "eslint-config-5app": "0.1.0",
     "mocha": "5.0.0",
-    "nyc": "11.3.0"
+    "nyc": "11.4.1"
   },
   "repository": {
     "type": "git",
